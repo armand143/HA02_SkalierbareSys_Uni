@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block title %}Edit Task{% endblock %}
+
+
+{% block content %}
+<body class="bg-light">
+  <div class="container-fluid">
+    <div class="card col-sm-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3 mt-3">
+      <div class="card-body">
+        <h3 class="card-title text-center">Todo bearbeiten</h5>
+          <p class="card-text">
+          <form action="/update/{{id}}" method="get">
+            <label for="beschreibung">Beschreibung:</label>
+            <textarea class="form-control mt-2" rows="3" placeholder="" maxlength="160"
+              required id="taskText" name="taskText">{{taskText}}</textarea>
+            <label for="deadline" class="mt-3">Abgabedatum:</label><br>
+            <input type="date" class="mt-2" required id="taskDate" name="taskDate" value={{taskDate}}></input><br>
+            <label for="progress" class="mt-3">Fortschritt:</label><br>
+            <input type="number" min="0" max="100" required id="taskDerc" name="taskDerc" value={{taskDerc}}><br>
+            <a href="{% url 'home' %}" class="col-4 btn btn-danger mt-4">Abbrechen</a>
+            <input type="submit" class="float-end col-4 btn btn-primary mt-4" value="Bearbeiten">
+          </form>
+          </p>
+      </div>
+    </div>
+
+  </div>
+</body>
+{% endblock %}
